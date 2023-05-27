@@ -1,0 +1,17 @@
+{
+  "Extend layout": {
+    "prefix": "@",
+    "body": "@if('${1:name}') ",
+    "description": "PHP if"
+  },
+  
+  "v-if": {
+    "prefix": "if",
+    "body": [
+      "@if ($1)",
+      "    $2",
+      "@endif"
+    ],
+    "description": "if-else block"
+  }
+}

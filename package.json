@@ -84,7 +84,7 @@
         "snippets": [
             {
                 "language": "view",
-                "path": "./snippets/snippets.json"
+                "path": "./src/snippets/snippets.json"
             }
         ]
     },
