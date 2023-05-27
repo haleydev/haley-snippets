@@ -68,7 +68,7 @@ function activate(context) {
         }
     };
     // Create the language client and start the client.
-    let client = new vscode_languageclient_1.LanguageClient('view', localize('viewserver.name', 'BLADE Language Server'), serverOptions, clientOptions);
+    let client = new vscode_languageclient_1.LanguageClient('view', localize('viewserver.name', 'view Language Server'), serverOptions, clientOptions);
     client.registerProposedFeatures();
     context.subscriptions.push(client.start());
 }

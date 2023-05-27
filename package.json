@@ -12,7 +12,7 @@
     "repository": {
         "type": "git",
         "url": "https://github.com/haleydev/haley-snippets"
-    }, 
+    },
     "icon": "images/icon.png",
     "galleryBanner": {
         "color": "#545454",
@@ -26,7 +26,7 @@
         "Snippets"
     ],
     "keywords": [
-        "view",    
+        "view",
         "snippet",
         "highlighter",
         "beautify"
@@ -40,7 +40,7 @@
                     "Haley",
                     "haley"
                 ],
-                "extensions": [                  
+                "extensions": [
                     "haley"
                 ],
                 "icon": {
@@ -52,11 +52,11 @@
                 "id": "view",
                 "aliases": [
                     "View",
-                    "view"                   
+                    "view"
                 ],
                 "extensions": [
                     ".view.php",
-                    "view"                   
+                    "view"
                 ],
                 "firstLine": "^#!\\s*/.*\\bphp\\b",
                 "mimetypes": [
@@ -86,7 +86,17 @@
                 "language": "view",
                 "path": "./src/snippets/snippets.json"
             }
-        ]
+        ],
+        "configuration": {
+            "title": "View Configuration",
+            "properties": {
+                "view.format.enable": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Enable format view file"
+                }
+            }
+        }
     },
     "activationEvents": [
         "onLanguage:view"
