@@ -26,8 +26,7 @@
         "Snippets"
     ],
     "keywords": [
-        "view",
-        "view",
+        "view",    
         "snippet",
         "highlighter",
         "beautify"
@@ -36,15 +35,28 @@
     "contributes": {
         "languages": [
             {
+                "id": "haley",
+                "aliases": [
+                    "Haley",
+                    "haley"
+                ],
+                "extensions": [                  
+                    "haley"
+                ],
+                "icon": {
+                    "light": "./images/icon.png",
+                    "dark": "./images/icon.png"
+                }
+            },
+            {
                 "id": "view",
                 "aliases": [
-                    "view",
-                    "haley"
+                    "View",
+                    "view"                   
                 ],
                 "extensions": [
                     ".view.php",
-                    "view",
-                    "haley"
+                    "view"                   
                 ],
                 "firstLine": "^#!\\s*/.*\\bphp\\b",
                 "mimetypes": [
