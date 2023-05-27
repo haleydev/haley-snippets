@@ -1,21 +1,18 @@
 {
-    "name": "view",
+    "name": "haley-view",
     "displayName": "Haley View Snippets",
     "description": "Snippets, Syntax Highlighting and Formatting for VS Code",
     "publisher": "haleydev",
-    "version": "1.0.3",
+    "version": "1.0.0",
     "author": {
         "name": "Warley Rodrigues de Moura",
         "email": "haleydev@hotmail.com"
     },
-    "homepage": "https://github.com/haleydev/view",
+    "homepage": "https://github.com/haleydev/haley-snippets",
     "repository": {
         "type": "git",
-        "url": "https://github.com/haleydev/view"
-    },
-    "bugs": {
-        "url": "https://github.com/haleydev/view"
-    },
+        "url": "https://github.com/haleydev/haley-snippets"
+    }, 
     "icon": "images/icon.png",
     "galleryBanner": {
         "color": "#545454",
@@ -35,7 +32,6 @@
         "highlighter",
         "beautify"
     ],
-   
     "main": "./out/extension.js",
     "contributes": {
         "languages": [
@@ -82,19 +78,19 @@
     },
     "activationEvents": [
         "onLanguage:view"
-      ],
-      "devDependencies": {
+    ],
+    "devDependencies": {
         "@types/node": "^16.18.16",
         "@types/vscode": "^1.46.0",
         "ts-loader": "^9.4.2",
         "typescript": "^5.0.2",
         "webpack": "^5.76.2",
         "webpack-cli": "^5.0.1"
-      },
-      "dependencies": {
+    },
+    "dependencies": {
         "vscode-css-languageservice": "^6.2.4",
         "vscode-html-languageservice": "^4.2.5",
         "vscode-languageclient": "^6.1.4",
         "vscode-languageserver-types": "^3.17.3"
-      }
+    }
 }
