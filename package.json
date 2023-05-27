@@ -1,0 +1,100 @@
+{
+    "name": "view",
+    "displayName": "Haley View Snippets",
+    "description": "Snippets, Syntax Highlighting and Formatting for VS Code",
+    "publisher": "haleydev",
+    "version": "1.0.3",
+    "author": {
+        "name": "Warley Rodrigues de Moura",
+        "email": "haleydev@hotmail.com"
+    },
+    "homepage": "https://github.com/haleydev/view",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/haleydev/view"
+    },
+    "bugs": {
+        "url": "https://github.com/haleydev/view"
+    },
+    "icon": "images/icon.png",
+    "galleryBanner": {
+        "color": "#545454",
+        "theme": "dark"
+    },
+    "engines": {
+        "vscode": "^1.46.0"
+    },
+    "categories": [
+        "Programming Languages",
+        "Snippets"
+    ],
+    "keywords": [
+        "view",
+        "view",
+        "snippet",
+        "highlighter",
+        "beautify"
+    ],
+   
+    "main": "./out/extension.js",
+    "contributes": {
+        "languages": [
+            {
+                "id": "view",
+                "aliases": [
+                    "view",
+                    "haley"
+                ],
+                "extensions": [
+                    ".view.php",
+                    "view",
+                    "haley"
+                ],
+                "firstLine": "^#!\\s*/.*\\bphp\\b",
+                "mimetypes": [
+                    "application/x-php"
+                ],
+                "configuration": "./src/languages/view.configuration.json",
+                "icon": {
+                    "light": "./images/icon.png",
+                    "dark": "./images/icon.png"
+                }
+            }
+        ],
+        "grammars": [
+            {
+                "language": "view",
+                "scopeName": "text.html.php.view",
+                "path": "./src/syntaxes/view.tmLanguage.json",
+                "embeddedLanguages": {
+                    "source.php": "php",
+                    "source.css": "css",
+                    "source.js": "javascript"
+                }
+            }
+        ],
+        "snippets": [
+            {
+                "language": "view",
+                "path": "./snippets/snippets.json"
+            }
+        ]
+    },
+    "activationEvents": [
+        "onLanguage:view"
+      ],
+      "devDependencies": {
+        "@types/node": "^16.18.16",
+        "@types/vscode": "^1.46.0",
+        "ts-loader": "^9.4.2",
+        "typescript": "^5.0.2",
+        "webpack": "^5.76.2",
+        "webpack-cli": "^5.0.1"
+      },
+      "dependencies": {
+        "vscode-css-languageservice": "^6.2.4",
+        "vscode-html-languageservice": "^4.2.5",
+        "vscode-languageclient": "^6.1.4",
+        "vscode-languageserver-types": "^3.17.3"
+      }
+}

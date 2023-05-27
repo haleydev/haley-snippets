@@ -1,0 +1,507 @@
+{
+  /* Extending a layout */
+  "Extend layout": {
+    "prefix": "v:extends",
+    "body": "@extends('${1:name}')",
+    "description": "extends view layout"
+  },
+  "Yield content": {
+    "prefix": "v:yield",
+    "body": "@yield('${1:name}')",
+    "description": "yield content section"
+  },
+  "Content Section": {
+    "prefix": "v:section",
+    "body": [
+      "@section('${1:name}')",
+      "    $2",
+      "@endsection"
+    ],
+    "description": "content section"
+  },
+  "Content Section Show": {
+    "prefix": "v:section-show",
+    "body": [
+      "@section('$1')",
+      "    $2",
+      "@show"
+    ],
+    "description": "content section show"
+  },
+  /* Include sub-view */
+  "Include view": {
+    "prefix": "v:include",
+    "body": "@include('${1:name}')",
+    "description": "include view"
+  },
+  /* If Statements */
+  "If-block": {
+    "prefix": "v:if",
+    "body": [
+      "@if ($1)",
+      "    $2",
+      "@endif"
+    ],
+    "description": "@if block"
+  },
+  "If-else-block": {
+    "prefix": "v:if-else",
+    "body": [
+      "@if ($1)",
+      "    $2",
+      "@else",
+      "    $3",
+      "@endif"
+    ],
+    "description": "if-else block"
+  },
+  "Has Section": {
+    "prefix": "v:has-section",
+    "body": [
+      "@hasSection ('${1:name}')",
+      "    $2",
+      "@else",
+      "    $3",
+      "@endif"
+    ],
+    "description": "@hasSection condition"
+  },
+  "Unless-block": {
+    "prefix": "v:unless",
+    "body": [
+      "@unless ($1)",
+      "    $2",
+      "@endunless"
+    ],
+    "description": "@unless block"
+  },
+  /* Loops */
+  "For-block": {
+    "prefix": "v:for",
+    "body": [
+      "@for (\\$i = ${1:0}; \\$i < ${2:\\$count}; \\$i++)",
+      "    $3",
+      "@endfor"
+    ],
+    "description": "@for block"
+  },
+  "Foreach-block": {
+    "prefix": "v:foreach",
+    "body": [
+      "@foreach (${1:\\$collection} as ${2:\\$item})",
+      "    $3",
+      "@endforeach"
+    ],
+    "description": "@foreach block"
+  },
+  "forelse-block": {
+    "prefix": "v:forelse",
+    "body": [
+      "@forelse (${1:\\$collection} as ${2:\\$item})",
+      "    $3",
+      "@empty",
+      "    $4",
+      "@endforelse"
+    ],
+    "description": "@forelse block"
+  },
+  "while-block": {
+    "prefix": "v:while",
+    "body": [
+      "@while ($1)",
+      "    $2",
+      "@endwhile"
+    ],
+    "description": "@while block"
+  },
+  /* Rendering views for collections */
+  "each loop": {
+    "prefix": "v:each",
+    "body": "@each('${1:view.name}', ${2:\\$collection}, '${3:variable}', '${4:view.empty}')",
+    "description": "@each loop"
+  },
+  /* Comments */
+  "view comment": {
+    "prefix": "v:comment",
+    "body": "{{-- ${1:comment} --}}",
+    "description": "comment block"
+  },
+  /* Display Data */
+  "view echo-data": {
+    "prefix": "v:echo",
+    "body": "{{ ${1:\\$data} }}",
+    "description": "echo data"
+  },
+  "view echo-unescaped-data": {
+    "prefix": "v:echo-html",
+    "body": "{!! ${1:\\$html_data} !!}",
+    "description": "echo unescaped data (allow html outputs)"
+  },
+  "view echo-untouch": {
+    "prefix": "v:echo-raw",
+    "body": "@{{ ${1:variable} }}",
+    "description": "echo untouched data (allow javascript expression)"
+  },
+  "view verbatim": {
+    "prefix": "v:verbatim",
+    "body": [
+      "@verbatim",
+      "{{ ${1:variable} }}",
+      "@endverbatim"
+    ],
+    "description": "displaying JavaScript variables in a large portion of your template"
+  },
+  /* Stacks */
+  "Push stack": {
+    "prefix": "v:push",
+    "body": [
+      "@push('${1:name}')",
+      "    $2",
+      "@endpush"
+    ],
+    "description": "@push stack"
+  },
+  "Stack": {
+    "prefix": "v:stack",
+    "body": "@stack('${1:name}')",
+    "description": "@stack"
+  },
+  /* Service Injection */
+  "inject service": {
+    "prefix": "v:inject",
+    "body": "@inject('${1:name}', '${2:class}')",
+    "description": "@inject Service"
+  },
+  /* Authorizing */
+  "can": {
+    "prefix": "v:can",
+    "body": [
+      "@can('${1:update}', ${2:\\$post})",
+      "    $3",
+      "@endcan"
+    ],
+    "description": "display a portion of the page only if the user is authorized to perform a given action."
+  },
+  "can-elsecan": {
+    "prefix": "v:can-elsecan",
+    "body": [
+      "@can('${1:update}', ${2:\\$post})",
+      "    $3",
+      "@elsecan('create', App\\Models\\\\${4:Post}::class)",
+      "    $5",
+      "@endcan"
+    ],
+    "description": "display a portion of the page only if the user is authorized to perform a given action."
+  },
+  "canany": {
+    "prefix": "v:canany",
+    "body": [
+      "@canany(['update', 'view', 'delete'], ${1:\\$post})",
+      "    $2",
+      "@endcanany"
+    ],
+    "description": "display a portion of the page only if the user is authorized to perform a given action."
+  },
+  "canany-elsecanany": {
+    "prefix": "v:canany-elsecanany",
+    "body": [
+      "@canany(['update', 'view', 'delete'], ${1:\\$post})",
+      "    $2",
+      "@elsecanany(['create'], App\\Models\\\\${3:Post}::class)",
+      "    $4",
+      "@endcanany"
+    ],
+    "description": "display a portion of the page only if the user is authorized to perform a given action."
+  },
+  "cannot": {
+    "prefix": "v:cannot",
+    "body": [
+      "@cannot('${1:update}', ${2:\\$post})",
+      "    $3",
+      "@endcannot"
+    ],
+    "description": "display a portion of the page only if the user is authorized to perform a given action."
+  },
+  "cannot-elsecannot": {
+    "prefix": "v:cannot-elsecannot",
+    "body": [
+      "@cannot('${1:update}', ${2:\\$post})",
+      "    $3",
+      "@elsecannot('create', App\\Models\\\\${5:Post}::class)",
+      "    $6",
+      "@endcannot"
+    ],
+    "description": "display a portion of the page only if the user is authorized to perform a given action."
+  },
+  /* v5.3 - $loop variable */
+  "loop": {
+    "prefix": "v:loop",
+    "body": [
+      "\\$loop->${1:first}"
+    ],
+    "description": "$loop->(index|remaining|count|first|last|depth|parent)"
+  },
+  "loop first": {
+    "prefix": "v:loop-first",
+    "body": [
+      "@if (\\$loop->first)",
+      "    ${1:{{-- This is the first iteration --\\}\\}}",
+      "@endif"
+    ],
+    "description": "$loop->first"
+  },
+  "loop last": {
+    "prefix": "v:loop-last",
+    "body": [
+      "@if (\\$loop->last)",
+      "    ${1:{{-- This is the last iteration --\\}\\}}",
+      "@endif"
+    ],
+    "description": "$loop->last"
+  },
+  "php": {
+    "prefix": "v:php",
+    "body": [
+      "@php",
+      "    $1",
+      "@endphp"
+    ],
+    "description": "@php block code in view"
+  },
+  "includeIf": {
+    "prefix": "v:includeIf",
+    "body": "@includeIf('${1:view.name}'${2:, ['some' => 'data']})",
+    "description": "include a view that may or may not be present, you should use the @includeIf directive"
+  },
+  /* v5.4 */
+  "component": {
+    "prefix": "v:component",
+    "body": [
+      "@component('$1')",
+      "    $2",
+      "@endcomponent"
+    ],
+    "description": "component"
+  },
+  "slot": {
+    "prefix": "v:slot",
+    "body": [
+      "@slot('$1')",
+      "    $2",
+      "@endslot"
+    ],
+    "description": "slot"
+  },
+  "isset": {
+    "prefix": "v:isset",
+    "body": [
+      "@isset(${1:\\$record})",
+      "    $2",
+      "@endisset"
+    ],
+    "description": "isset"
+  },
+  "empty": {
+    "prefix": "v:empty",
+    "body": [
+      "@empty(${1:\\$record})",
+      "    $2",
+      "@endempty"
+    ],
+    "description": "empty"
+  },
+  "error": {
+    "prefix": "v:error",
+    "body": [
+      "@error('${1:record}')",
+      "    $2",
+      "@enderror"
+    ],
+    "description": "error"
+  },
+  "includeWhen": {
+    "prefix": "v:includeWhen",
+    "body": "@includeWhen(${1:\\$boolean}, '${2:view.name}', [${3:'some' => 'data'}])",
+    "description": "includeWhen"
+  },
+  /* v5.5 */
+  "auth": {
+    "prefix": "v:auth",
+    "body": [
+      "@auth",
+      "    $1",
+      "@endauth"
+    ],
+    "description": "auth"
+  },
+  "guest": {
+    "prefix": "v:guest",
+    "body": [
+      "@guest",
+      "    $1",
+      "@endguest"
+    ],
+    "description": "guest"
+  },
+  "switch": {
+    "prefix": "v:switch",
+    "body": [
+      "@switch(${1:\\$type})",
+      "    @case(${2:1})",
+      "        $3",
+      "        @break",
+      "    @case(${4:2})",
+      "        $5",
+      "        @break",
+      "    @default",
+      "        $6",
+      "@endswitch"
+    ],
+    "description": "switch"
+  },
+  "includeFirst": {
+    "prefix": "v:includeFirst",
+    "body": "@includeFirst(['${1:view.name}', '${2:variable}'], [${3:'some' => 'data'}])",
+    "description": "includeFirst"
+  },
+  /* v5.6 */
+  "csrf": {
+    "prefix": "v:csrf",
+    "body": "@csrf",
+    "description": "form csrf field"
+  },
+  "method": {
+    "prefix": "v:method",
+    "body": "@method($1)",
+    "description": "form method field"
+  },
+  "dump": {
+    "prefix": "v:dump",
+    "body": "@dump($1)",
+    "description": "dump"
+  },
+  "dd": {
+    "prefix": "v:dd",
+    "body": "@dd($1)",
+    "description": "dump and die"
+  },
+  /* Retrieving Translation Strings */
+  "lang": {
+    "prefix": "v:lang",
+    "body": "@lang('${1:messages.welcome}')",
+    "description": "lang"
+  },
+  /* v6.x */
+  "includeUnless": {
+    "prefix": "v:includeUnless",
+    "body": "@includeUnless(${1:\\$boolean}, '${2:view.name}', [${3:'some' => 'data'}])",
+    "description": "includeUnless"
+  },
+  /* v7.x */
+  "props": {
+    "prefix": "v:props",
+    "body": "@props(['${1:propName}'])",
+    "description": "Haley component data properties"
+  },
+  "env": {
+    "prefix": "v:env",
+    "body": [
+      "@env('${1:staging}')",
+      "    $2",
+      "@endenv"
+    ],
+    "description": "env"
+  },
+  "production": {
+    "prefix": "v:production",
+    "body": [
+      "@production",
+      "    $1",
+      "@endproduction"
+    ],
+    "description": "production"
+  },
+  "once": {
+    "prefix": "v:once",
+    "body": [
+      "@once",
+      "    $1",
+      "@endonce"
+    ],
+    "description": "define a portion of template that will only be evaluated once per rendering cycle"
+  },
+  /* v8.x */
+  "aware": {
+    "prefix": "v:aware",
+    "body": "@aware(['${1:propName}'])",
+    "description": "Accessing data from a parent component (Laravel 8.64)"
+  },
+  "js": {
+    "prefix": "v:js",
+    "body": "@js(${1:\\$data})",
+    "description": "This directive is useful to properly escape JSON within HTML quotes"
+  },
+  "class": {
+    "prefix": "v:class",
+    "body": "@class(['${1:p-4}', ${2:'font-bold' => true}])",
+    "description": "conditionally compiles a CSS class string. (Laravel 8.51)"
+  },
+  /* v9.x */
+  "checked": {
+    "prefix": "v:checked",
+    "body": "@checked(${1:true})",
+    "description": "This directive will echo checked if the provided condition evaluates to true (Laravel 9.x)"
+  },
+  "selected": {
+    "prefix": "v:selected",
+    "body": "@selected(${1:true})",
+    "description": "The @selected directive may be used to indicate if a given select option should be \"selected\" (Laravel 9.x)"
+  },
+  "disabled": {
+    "prefix": "v:disabled",
+    "body": "@disabled(${1:true})",
+    "description": "The @disabled directive may be used to indicate if a given element should be \"disabled\" (Laravel 9.x)"
+  },
+  "style": {
+    "prefix": "v:style",
+    "body": "@style($1)",
+    "description": "The @style directive may be used to conditionally add inline CSS styles to an HTML element (Laravel 9.x)"
+  },
+  "readonly": {
+    "prefix": "v:readonly",
+    "body": "@readonly(${1:true})",
+    "description": "The @readonly directive may be used to indicate if a given element should be \"readonly\" (Laravel 9.x)"
+  },
+  "required": {
+    "prefix": "v:required",
+    "body": "@required(${1:true})",
+    "description": "The @required directive may be used to indicate if a given element should be \"required\" (Laravel 9.x)"
+  },
+  "pushOnce": {
+    "prefix": "v:pushOnce",
+    "body": [
+      "@pushOnce('${1:scripts}')",
+      "    $2",
+      "@endPushOnce"
+    ],
+    "description": "Combine @once and @push for convenience (Laravel 9.x)"
+  },
+  "prepend": {
+    "prefix": "v:prepend",
+    "body": [
+      "@prepend('${1:scripts}')",
+      "    $2",
+      "@prepend"
+    ],
+    "description": "prepend content to a stack"
+  },
+  "prependOnce": {
+    "prefix": "v:prependOnce",
+    "body": [
+      "@prependOnce('${1:scripts}')",
+      "    $2",
+      "@endPrependOnce"
+    ],
+    "description": "Combine @once and @prepend for convenience (Laravel 9.x)"
+  }
+}

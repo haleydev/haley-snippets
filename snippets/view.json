@@ -1,0 +1,49 @@
+{
+  "Haley-component": {
+    "prefix": "Haley::component",
+    "body": "Haley::component('${1:package-name}', ${2:PackageNameComponent}::class);",
+    "description": "Registering Package Components (AppServiceProvider boot method)"
+  },
+  "Haley-include": {
+    "prefix": "Haley::include",
+    "body": "Haley::include('${1:includes.input}', '${2:input}');",
+    "description": "Aliasing Includes (AppServiceProvider boot method)"
+  },
+  "Haley-if": {
+    "prefix": "Haley::if",
+    "body": [
+      "Haley::if('${1:env}', function ($${2:environment}) {",
+      "    ${3:return app()->environment($$environment);}",
+      "});"
+    ],
+    "description": "Custom If Statements (AppServiceProvider boot method)"
+  },
+  "Haley-directive": {
+    "prefix": "Haley::directive",
+    "body": [
+      "Haley::directive('${1:datetime}', function ($${2:expression}) {",
+      "    ${3:return \"<?php echo ($$expression)->format('m/d/Y H:i'); ?>\";}",
+      "});"
+    ],
+    "description": "Custom directive (AppServiceProvider boot method)"
+  },
+  "Haley-stringable": {
+    "prefix": "Haley::stringable",
+    "body": [
+      "Haley::stringable(function (${1:Money} $${2:money}) {",
+      "    ${3:return $$money->formatTo('en_GB');}",
+      "});"
+    ],
+    "description": "Custom echo handlers (AppServiceProvider boot method)"
+  },
+  "Haley-render": {
+    "prefix": "Haley::render",
+    "body": "Haley::render(${1:'Haley template string'}, ${2:\\$data});",
+    "description": "Transform a raw Haley template string into valid HTML (Laravel 9.x)"
+  },
+  "Haley-renderComponent": {
+    "prefix": "Haley::renderComponent",
+    "body": "Haley::renderComponent(new ${1:HelloComponent}(${2:\\$params}));",
+    "description": "Render a given class component by passing the component instance to the method  (Laravel 9.x)"
+  }
+}
